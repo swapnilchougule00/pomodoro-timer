@@ -1,10 +1,10 @@
 import { useState } from "react";
-import LoginPage from "./components/auth/LoginPage";
+import LoginPage from "./components/LoginPage";
 import Settings from "./components/main/Settings";
 import Timer from "./components/main/Timer";
 import SettingsContext from "./components/main/SettingsContext";
 import { Routes, Route } from "react-router-dom";
-import SignIn from "./components/auth/SignIn";
+import SignIn from "./components/SignIn";
 
 
 function App() {
