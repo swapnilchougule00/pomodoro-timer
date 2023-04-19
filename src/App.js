@@ -1,32 +1,41 @@
 import { useState } from "react";
-import LoginPage from "./components/LoginPage";
+import LoginPage from "./components/auth/LoginPage";
 import Settings from "./components/main/Settings";
 import Timer from "./components/main/Timer";
 import SettingsContext from "./components/main/SettingsContext";
+import { Routes, Route } from "react-router-dom";
+import SignIn from "./components/auth/SignIn";
 
 
 function App() {
   const [showSettings, setShowSettings] = useState(false)
-  const [workMinutes, setWorkMinutes] = useState(1)
-  const [brakeMinutes, setBrakeMinutes] = useState(1)
+  const [workMinutes, setWorkMinutes] = useState(25)
+  const [brakeMinutes, setBrakeMinutes] = useState(5)
 
   return (
     <div className="App bg-[#30384b] text-[#eee]">
 
       {/* <LoginPage/> */}
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Timer" element={
+          <SettingsContext.Provider value={{
+            showSettings,
+            workMinutes,
+            brakeMinutes,
+            setWorkMinutes,
+            setBrakeMinutes,
+            setShowSettings
+          }}>
+            {showSettings ? <Settings /> : <Timer />}
 
-      <SettingsContext.Provider value={{
-        showSettings,
-        workMinutes,
-        brakeMinutes,
-        setWorkMinutes,
-        setBrakeMinutes,
-        setShowSettings
-      }}>
+          </SettingsContext.Provider>
 
-        {showSettings ? <Settings /> : <Timer />}
+        } />
+      </Routes>
 
-      </SettingsContext.Provider>
+
 
 
 
