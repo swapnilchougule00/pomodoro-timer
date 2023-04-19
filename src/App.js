@@ -3,8 +3,8 @@ import Settings from "./components/main/Settings";
 import Timer from "./components/main/Timer";
 import SettingsContext from "./components/main/SettingsContext";
 import { Routes, Route } from "react-router-dom";
-import LoginPage from "./components/Login";
 import SignIn from "./components/SignIn";
+import Login from "./components/Login";
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       {/* <LoginPage/> */}
       <Routes>
         <Route path="/" element={<SignIn />} />
-        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/Timer" element={
           <SettingsContext.Provider value={{
             showSettings,
